@@ -1,0 +1,51 @@
+.card-layout {
+  display: flex;
+  @media (max-width: 800px) {
+    flex-wrap: wrap;
+  }
+  --size: 15em;
+
+  padding: var(--layout-padding);
+  flex: 1;
+  overflow: auto;
+
+  &__content {
+    display: grid;
+    width: 70%;
+    height: 100%;
+    gap: 1em;
+    padding: 3em;
+    margin: 2%;
+    background: #fff;
+    grid-auto-rows: var(--size);
+    grid-template-columns: repeat(4, 13em);
+    justify-content: center;
+    @media (max-width: 1280px) {
+      grid-template-columns: repeat(3, 13em);
+    }
+    @media (max-width: 800px) {
+      grid-template-columns: repeat(2, 13em);
+      justify-content: center;
+    }
+    a {
+      text-decoration: none;
+      pointer-events: none;
+    }
+  }
+  &__side-panel {
+    display: grid;
+    grid-auto-rows: var(--size);
+    grid-template-columns: repeat(2, 13em);
+    align-items: center;
+    width: 30%;
+    height: 100%;
+    padding: 3em;
+    background: #fff;
+    margin: 2%;
+    padding: var(--layout-padding);
+    
+    @media (max-width: 800px) {
+      justify-content: center;
+    }
+  }
+}
