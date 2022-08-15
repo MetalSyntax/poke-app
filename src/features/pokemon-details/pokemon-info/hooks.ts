@@ -3,6 +3,20 @@ import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { actions, selectors as pokemonDetailsSelectors } from "../slice";
 import { selectors as pokemonPageSelectors } from "../../pokemon-page/slice";
 
+/**
+ * It returns an object with the following properties:
+ * 
+ * - `error`: the error from the last request to the API
+ * - `isSpeciesLoading`: whether the species is currently being fetched
+ * - `isSpeciesError`: whether the species fetch failed
+ * - `pokemonInfo`: the pokemon info from the API
+ * - `images`: the images from the pokemon info
+ * - `species`: the species from the API
+ * 
+ * The function also has a side effect: it dispatches an action to fetch the pokemon info when the
+ * `pokemonName` changes
+ * @param {string | undefined} pokemonName - The name of the pokemon to fetch details for.
+ */
 export function usePokemonInfo(pokemonName: string | undefined) {
   const dispatch = useAppDispatch();
   const error = useAppSelector(pokemonDetailsSelectors.error);

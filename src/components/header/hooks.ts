@@ -1,5 +1,9 @@
 import React from "react";
 
+/**
+ * It returns a boolean that indicates whether the user has scrolled the page
+ * @returns A boolean value that is true if the user has scrolled down the page.
+ */
 export function useHasScrolled() {
   const [scrolled, setScrolled] = React.useState(false);
 

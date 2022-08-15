@@ -2,6 +2,11 @@ import React from "react";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { selectors, actions } from "../slice";
 
+/**
+ * It fetches the first page of pokemon when the current page is 1, and it fetches the previous or next
+ * page when the user clicks the corresponding button
+ * @returns An object with two functions.
+ */
 export function useFetchPage() {
   const dispatch = useAppDispatch();
   const currentPage = useAppSelector(selectors.list.currentPage);
@@ -50,6 +55,15 @@ export function useFetchPage() {
   };
 }
 
+/**
+ * It returns an object with the following properties:
+ * 
+ * isLoading: boolean
+ * isError: boolean
+ * pokemonInfoIds: string[]
+ * currentPage: number
+ * pageCount: number
+ */
 export function usePageData() {
   const isLoading = useAppSelector(selectors.list.isLoading);
   const isError = useAppSelector(selectors.list.isError);

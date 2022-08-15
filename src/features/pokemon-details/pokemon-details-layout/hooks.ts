@@ -1,5 +1,9 @@
 import React from "react";
 
+/**
+ * It sets the accent color to the given color, and then sets the theme color to the accent color
+ * @param {string | undefined} color - The color to set the theme to.
+ */
 export function useThemeColorEffect(color: string | undefined) {
   React.useEffect(() => {
     if (!color) return;
@@ -79,6 +83,10 @@ export function useThemeColorEffect(color: string | undefined) {
   }, [color]);
 }
 
+/**
+ * It finds the `<meta name="theme-color">` element and sets its `content` attribute to the value of
+ * the `--accent-color` CSS variable
+ */
 function syncThemeColorWithAccentColor() {
   document
     .querySelector("meta[name=theme-color]")
